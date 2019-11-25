@@ -14,6 +14,7 @@ public class BinaryTreeLevelOrderTraversal {
         root.left.left = new TreeNode(4);
         root.right.left = new TreeNode(5);
         root.right.right = new TreeNode(6);
+        System.out.println(" \n");
         printNodesOnEachLevel(root);
     }
 
