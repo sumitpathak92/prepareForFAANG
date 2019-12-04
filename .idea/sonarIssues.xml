@@ -143,6 +143,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../pitari/microservices/dsd-api-pitari-report/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../pitari/microservices/dsd-api-pitari-segmentation/pom.xml">
           <value>
             <set />
@@ -288,6 +293,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/PairsWithEqualSum.java">
           <value>
             <set />
@@ -368,6 +378,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/leetcode/BSTToGST.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/leetcode/BinaryTreeLevelOrderTraversal.java">
           <value>
             <set />
@@ -439,6 +454,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/leetcode/MergeIntervals.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/leetcode/MinimumTimeVisitingAllPoints.java">
           <value>
             <set />
           </value>
@@ -534,6 +554,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/leetcode/ZigZagLevelOrderTraversal.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/random/LeastCommonSubsequence.java">
           <value>
             <set />
           </value>
