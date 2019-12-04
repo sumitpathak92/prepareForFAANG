@@ -21,6 +21,6 @@ public class LeastCommonSubsequence {
     public static int lcsLengthDPSolution(String X, String Y, int m, int n) {
         int dp[][] = new int[m][n];
         if(m==0 || n==0) return 0;
-        if(X.charAt())
+        return -1;
     }
 }
