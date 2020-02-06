@@ -20,6 +20,8 @@ Input: [1,2,3]
     1
    / \
   2   3
+       \
+        4
 Output: 25
 Explanation:
 The root-to-leaf path 1->2 represents the number 12.
