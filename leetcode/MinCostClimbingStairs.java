@@ -16,27 +16,15 @@ public class MinCostClimbingStairs {
 
     public static void main(String[] args) {
         int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
-        System.out.println("approach 1  "+minCostClimbingStairs(cost));
-        System.out.println("approach 2   " + minCostClimbingStairsGreedy(cost));
-    }
-
-    //Approach 1
-    public static int minCostClimbingStairs(int[] cost) {
         int[] dp = new int[cost.length+1];
         dp[0] = cost[0];
         dp[1] = cost[1];
-        for(int i = 2; i<=cost.length ; i++) {
-            int c = (i==cost.length)?0:cost[i];
-            dp[i] = Math.min(dp[i-1], dp[i-2])+c;
+        for(int i =2; i<=cost.length; i++) {
+            dp[i]=(i==cost.length) ? Math.min(dp[i-1],dp[i-2]) : Math.min(dp[i-2], dp[i-1]) + cost[i];
         }
-        return dp[cost.length];
+        System.out.println(dp[cost.length]);
     }
 
-    //Approach 2
-    public static int minCostClimbingStairsGreedy(int[] cost) {
-        for(int i=2; i<cost.length; i++) {
-            cost[i] += Math.min(cost[i-2], cost[i-1]);
-        }
-        return Math.min(cost[cost.length-1], cost[cost.length-2]);
-    }
+
+
 }
