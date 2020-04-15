@@ -33,19 +33,12 @@ class KthLargest {
     public KthLargest(int k, int[] nums) {
         minHeap = new PriorityQueue<>();
         this.k = k;
-
-        for(int i = 0; i<nums.length; i++) {
-            minHeap.add(nums[i]);
-
-            if(minHeap.size()>k) {
-                minHeap.poll();
-            }
-        }
+        for(int i : nums) add(i);
         // heap will now have k largest elements
     }
 
     public int add(int val) {
-        minHeap.add(val);
+        minHeap.offer(val);
         if(minHeap.size()>k) {
             minHeap.poll();
         }
