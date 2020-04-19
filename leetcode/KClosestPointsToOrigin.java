@@ -64,6 +64,6 @@ public class KClosestPointsToOrigin {
     }
 
     public static double getEuclideanDistance(int x, int y) {
-        return Math.sqrt((x*x)+(y*y));
+        return Math.pow(x,2)+Math.pow(y,2);
     }
 }
