@@ -25,8 +25,8 @@ public class MiddleOfLinkedList {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
-//        head.next.next.next.next.next = new ListNode(6);
-        System.out.println("output   "+middleNode(head).data);
+        head.next.next.next.next.next = new ListNode(6);
+        System.out.println("output   "+middleNode2(head).data);
     }
 
     public static ListNode middleNode(ListNode head) {
@@ -43,5 +43,17 @@ public class MiddleOfLinkedList {
             c--;
         }
         return tmp;
+    }
+
+    public static ListNode middleNode2(ListNode head) {
+        ListNode A = head;
+        ListNode B= head;
+        while(B!=null) {
+            B = B.next;
+            if(B==null) return A;
+            B = B.next;
+            A=A.next;
+        }
+        return A;
     }
 }
