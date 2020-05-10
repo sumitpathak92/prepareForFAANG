@@ -23,16 +23,15 @@ public class TheatreSquare {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int a = sc.nextInt();
-        BigInteger r1 = BigInteger.valueOf((m+a-1)/a);
-        BigInteger r2 = BigInteger.valueOf((n+a-1)/a);
-        BigInteger ans = BigInteger.valueOf((m+a-1)/a*(n+a-1)/a);
+        long n = sc.nextLong();
+        long m = sc.nextLong();
+        long a = sc.nextLong();
+        long r1 = m/a;
+        long r2 = n/a;
+        if(m%a!=0) r1++;
+        if(n%a!=0) r2++;
+        long ans = r1*r2;
         System.out.println(ans);
     }
 
-    public static int flagstones() {
-        return 0;
-    }
 }
