@@ -27,10 +27,9 @@ public class SortCharactersByFrequency {
         }
         StringBuilder stringBuilder = new StringBuilder();
         while(!pq.isEmpty()) {
-            char c = pq.peek();
+            char c = pq.poll();
             int freq = hm.get(c);
             for(int i =0 ; i<freq; i++) stringBuilder.append(c);
-            pq.poll();
         }
         return stringBuilder.toString();
     }
