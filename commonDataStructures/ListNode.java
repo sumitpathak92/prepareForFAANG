@@ -9,4 +9,5 @@ public class ListNode {
         this.data = d;
         this.next = null;
     }
+    public ListNode(int d, ListNode next) { this.data = d; this.next = next; }
 }
