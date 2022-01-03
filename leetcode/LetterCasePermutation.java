@@ -13,7 +13,7 @@ import java.util.List;
  *
  * */
 
-public class LetterCasePermutation {
+public class    LetterCasePermutation {
     static List<String> res = new ArrayList<>();
     public static void main(String[] args) {
         String input = "a1b2";
