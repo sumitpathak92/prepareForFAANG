@@ -13,17 +13,22 @@ public class MiddleOfLinkedList {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next = new ListNode(6);
+
         System.out.println(middleNode(head).data);
     }
 
     public static ListNode middleNode(ListNode head) {
-        if(head == null) return null;
-        ListNode p1 = head;
-        ListNode p2 = head;
-        while(p2!=null && p2.next!=null) {
-            p1 = p1.next;
-            p2 = p2.next.next;
+        int len = 0; ListNode tmp = head;
+        while(tmp!=null) {
+            tmp = tmp.next;
+            len++;
         }
-        return p1;
+        if(len==1) return head;
+        int mid = len/2+1;
+        for(int i = 2; i<=mid; i++) {
+            head=head.next;
+        }
+        return head;
     }
 }

@@ -38,7 +38,8 @@ public class BinaryTreeInorderTraversal {
 
     public List<Integer> inorderTraversalRecursive(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        helper(root, res);
+        res = helper(root, res);
+        System.out.println(res);
         return res;
     }
 

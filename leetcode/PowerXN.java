@@ -11,8 +11,8 @@ public class PowerXN {
 
     private static Map<Integer, Double> hm = new HashMap<>();
     public static void main(String[] args) {
-        double x = 0.00001;
-        int n = 2147483647;
+        double x = 2.00000;
+        int n = 10;
         System.out.println(myPow(x, n));
     }
 
@@ -24,10 +24,16 @@ public class PowerXN {
             x = 1/x;
             N = -N;
         }
-        double ans = 1;
-        for(long i = 0; i<N; i++) {
-            ans=ans*x;
+        return myPower(x, N);
+    }
+
+    public static double myPower(double x, long n) {
+        if(n==0) return 1.0;
+        double val = myPower(x, n/2);
+        if(n%2==0) {
+            return val*val;
+        } else {
+            return val*val*x;
         }
-        return ans;
     }
 }

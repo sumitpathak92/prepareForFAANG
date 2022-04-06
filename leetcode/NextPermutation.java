@@ -8,27 +8,24 @@ LC Medium : https://leetcode.com/problems/next-permutation/
 public class NextPermutation {
 
     public static void main(String[] args) {
-        int[] nums = {3, 2, 1};
+        int[] nums = {1, 3, 5, 4, 2};
         nextPermutation(nums);
         System.out.println(Arrays.toString(nums));
     }
 
     public static void nextPermutation(int[] A) {
-        if (A.length == 1) return;
-        int i = A.length - 2;
-        while (i >= 0 && A[i] >= A[i + 1]) {
-            i--;
+        int ind1=0; int ind2=A.length-1;
+        int j = A.length-2;
+        while(j>=0 && A[j]>=A[j+1]) {
+            j--;
         }
-        if (i >= 0) {
-            int j = A.length - 1;
-            while (A[j] <= A[i]) {
-                j--;
-            }
-            swap(A, i, j);
+        if(j>=0) {
+            while(A[ind2]<=A[j])
+                ind2--;
+            swap(A, ind2, j);
         }
-        reverse(A, i + 1, A.length - 1);
+        reverse(A, j+1, A.length-1);
     }
-
     private static void swap(int[] A, int i, int j) {
         int tmp = A[i];
         A[i] = A[j];
@@ -41,5 +38,6 @@ public class NextPermutation {
             i++; j--;
         }
     }
+
 
 }

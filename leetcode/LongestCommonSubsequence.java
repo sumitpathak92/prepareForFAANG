@@ -1,60 +1,54 @@
 package leetcode;
 
+import java.util.Arrays;
+
 /**
  * LC Medium : https://leetcode.com/problems/longest-common-subsequence/
  * **/
 public class LongestCommonSubsequence {
 
     public static void main(String[] args) {
-        String x = "abc"; String y = "hgh";
+        String x = "abc"; String y = "ac";
         System.out.println(longestCommonSubsequenceII(x, y));
     }
-    static int[][] t;
+    static int[][] dp;
     static int longestCommonSubsequence(String x, String y) {
         int m = x.length(); int n = y.length();
-        t = new int[m+1][n+1];
-        for(int i = 0; i<m+1; i++) {
-            for(int j=0; j<n+1; j++) {
-                t[i][j] = -1;
-            }
+        dp = new int[m+1][n+1];
+        for(int[] row: dp) {
+            Arrays.fill(row, -1);
         }
-        return helper(x, y, m, n);
+        return f(x, y, m, n);
     }
 
-    static int helper(String x, String y, int m, int n) {
-        // base condition
-        if(m==0 || n==0) return 0;
-        // check if subproblem already exists
-        if(t[m][n] != -1) return t[m][n];
+    static int f(String x, String y, int m, int n) {
+        if(m==0 || n==0) {
+            return 0;
+        }
+        if(dp[m][n]!=-1) return dp[m][n];
         if(x.charAt(m-1)==y.charAt(n-1)) {
-            t[m][n] = 1 + helper(x, y, m-1, n-1);
+            return dp[m][n]=1+f(x, y, m-1, n-1);
         }
-        else {
-            t[m][n] = Math.max(helper(x, y, m-1, n), helper(x,y, m, n-1));
-        }
-        return t[m][n];
+        else
+            return dp[m][n]=Math.max(f(x,y,m,n-1), f(x,y,m-1, n));
     }
 
     // bottom-up DP approach
     static int longestCommonSubsequenceII(String x, String y) {
         int m = x.length(); int n = y.length();
-        t = new int[m+1][n+1];
-        for(int i = 0; i<m+1; i++) {
-            for(int j=0; j<n+1; j++) {
-                if(i==0) t[i][j] = 0;
-                if(j==0) t[i][j] = 0;
-            }
-        }
+        dp = new int[m+1][n+1];
+        for(int i = 0; i<m; i++) dp[i][0] = 0;
+        for(int j = 0; j<n; j++) dp[0][j] = 0;
+        System.out.println(Arrays.deepToString(dp));
         for(int i = 1; i<=m; i++) {
             for(int j = 1; j<=n; j++) {
-                if(x.charAt(i-1) == y.charAt(j-1)) {
-                    t[i][j] = 1+t[i-1][j-1];
-                } else {
-                    t[i][j] = Math.max(t[i][j-1], t[i-1][j]);
-                }
+                if(x.charAt(i-1)==y.charAt(j-1))
+                    dp[i][j] = 1+dp[i-1][j-1];
+                else
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
             }
         }
-        return t[m][n];
+        return dp[m][n];
     }
 
 }

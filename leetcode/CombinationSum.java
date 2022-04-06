@@ -14,27 +14,25 @@ public class CombinationSum {
         System.out.println(combinationSum(candidates, 7));
     }
 
-    public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+    public static List<List<Integer>> combinationSum(int[] A, int target) {
         List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> comb = new ArrayList<>();
-        int start = 0;
-        combination(candidates, ans, comb, start, target);
+        f(A, ans, new ArrayList<>(), A.length-1, target);
         return ans;
     }
 
-    private static void combination(int[] candidates, List<List<Integer>> ans, List<Integer> comb, int start, int target) {
-        if(target<0) return;
-        if(0 == target) {
-            ans.add(new ArrayList<>(comb));
+    private static void f(int[] A, List<List<Integer>> ans, List<Integer> comb, int i, int target) {
+        if(i==-1) {
+            if(target==0)
+                ans.add(new ArrayList<>(comb));
             return;
         }
-        for(int i = start; i<candidates.length; i++) {
-            int cand = candidates[i];
-            comb.add(cand);
-            combination(candidates, ans, comb, i, target-cand);
-            // backtrack
+        if(A[i]<=target) {
+            comb.add(A[i]);
+            f(A, ans, comb, i, target-A[i]);
             comb.remove(comb.size()-1);
         }
+        f(A, ans, comb, i - 1, target);
+
     }
 
 

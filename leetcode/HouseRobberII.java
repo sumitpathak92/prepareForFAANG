@@ -5,33 +5,34 @@ import java.util.Arrays;
 
 public class HouseRobberII {
 
-//    private static int total = 0;
-    static int[] cache = new int[100];
     public static void main(String[] args) {
         int[] A = {1,2,3,1};
         System.out.println(rob(A));
     }
-
-    public static int rob(int[] A) {
-        Arrays.fill(cache, -1);
-        return dp(A, 0);
+    static int[] dp;
+    static int rob(int[] A) {
+        int[] A1 = new int[A.length];
+        int[] A2 = new int[A.length];
+        for(int i = 0; i<A.length; i++) {
+            if(i!=0) A1[i] = A[i];
+            if(i!=A.length-1) A2[i] = A[i];
+        }
+        System.out.println(Arrays.toString(A1) +"   "+ Arrays.toString(A2));
+        int first = f(A1);
+        int sec = f(A2);
+        return Math.max(first, sec);
     }
 
-    private static int dpRecursive(int[] A, int start) {
-        /**
-         * This recursive solution wil result in TLE
-         * **/
-        if(start>=A.length) return 0;  // base case
-
-        return Math.max(dpRecursive(A, start+1), dpRecursive(A, start+2)+A[start]);
-
-    }
-
-    private static int dp(int[] A, int start) {
-        if(start>=A.length) return 0;
-        if(cache[start]!=-1) return cache[start];
-
-        cache[start] = Math.max(dp(A, start+1), A[start]+dp(A, start+2));
-        return cache[start];
+    static int f(int[] A) {
+        int n = A.length;
+        dp = new int[n];
+        dp[0] = A[0];
+        for(int i = 1; i<n; i++) {
+            int take = A[i];
+            if(i>1) take+=dp[i-2];
+            int noTake = dp[i-1];
+            dp[i] = Math.max(take, noTake);
+        }
+        return dp[n-1];
     }
 }

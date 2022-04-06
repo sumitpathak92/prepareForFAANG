@@ -16,6 +16,8 @@
  **/
 package leetcode;
 
+import java.util.Arrays;
+
 public class MinimumPathSum {
     public static void main(String[] args) {
         int[][] input = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
@@ -23,20 +25,20 @@ public class MinimumPathSum {
     }
 
     private static int minPathSum(int[][] grid) {
-        int r = grid.length;
-        int c = grid[0].length;
-        for(int i = 0; i<r; i++) {
-            for(int j=0; j<c; j++) {
-                if(i==0 && j!=0) {
-                    grid[i][j] = grid[i][j] + grid[i][j-1];
-                } else if(i!=0 && j==0) {
-                    grid[i][j] = grid[i][j] + grid[i-1][j];
-                } else if(i == 0) {
-                } else {
-                    grid[i][j] = Math.min(grid[i][j-1], grid[i-1][j]) + grid[i][j];
-                }
-            }
+        dp = new int[grid.length][grid[0].length];
+        for(int[] row: dp) {
+            Arrays.fill(row, -1);
         }
-        return grid[r-1][c-1];
+        return f(grid, grid.length-1, grid[0].length-1);
+    }
+
+    static int[][] dp;
+    static int f(int[][] A, int i, int j) {
+        if(i==0 && j==0) return A[i][j];
+        if(i<0 || j<0) return (int) 1e9;
+        if(dp[i][j]!=-1) return dp[i][j];
+        int left = A[i][j] + f(A, i, j-1);
+        int top = A[i][j] + f(A, i-1, j);
+        return dp[i][j]=Math.min(left, top);
     }
 }

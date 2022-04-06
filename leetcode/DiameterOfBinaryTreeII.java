@@ -7,9 +7,14 @@ import commonDataStructures.TreeNode;
  * **/
 public class DiameterOfBinaryTreeII {
 
-    static int ans=Integer.MIN_VALUE;
+    static int ans=0;
     public static void main(String[] args) {
-
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+//        root.right = new TreeNode(3);
+//        root.left.left = new TreeNode(4);
+//        root.left.right = new TreeNode(5);
+        System.out.println(diameterOfBinaryTree(root));
     }
 
     public static int diameterOfBinaryTree(TreeNode root) {
@@ -19,12 +24,9 @@ public class DiameterOfBinaryTreeII {
 
     public static int height(TreeNode root) {
         if(root==null) return 0;
-        int lheight = height(root.left);
-        int rHeight = height(root.right);
-
-        ans = Math.max(lheight+rHeight+2, ans); // for this node this is the answer
-
-        // return height of the tree
-        return 1+Math.max(lheight, rHeight);
+        int lh = height(root.left);
+        int rh = height(root.right);
+        ans = Math.max(ans, lh+rh);
+        return 1 + Math.max(lh, rh);
     }
 }

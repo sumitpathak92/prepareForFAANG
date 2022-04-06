@@ -1,7 +1,6 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * LC Medium : https://leetcode.com/explore/learn/card/queue-stack/232/practical-application-stack/1392/
@@ -13,7 +12,23 @@ public class CloneGraph {
     }
 
     public GraphNode cloneGraph(GraphNode node) {
-        return null;
+        if(node==null) return node;
+
+        HashMap<GraphNode, GraphNode> map = new HashMap<>();
+        LinkedList<GraphNode> q = new LinkedList<>();
+        q.add(node);
+        map.put(node, new GraphNode(node.val, new ArrayList<>()));
+        while(!q.isEmpty()) {
+            GraphNode tmp = q.remove();
+            for(GraphNode neighbour : tmp.neighbors) {
+                if(!map.containsKey(neighbour)) {
+                    map.put(neighbour, new GraphNode(neighbour.val, new ArrayList<>()));
+                    q.add(neighbour);
+                }
+                map.get(tmp).neighbors.add(map.get(neighbour));
+            }
+        }
+        return map.get(node);
     }
 }
 
