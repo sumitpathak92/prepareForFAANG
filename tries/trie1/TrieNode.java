@@ -1,4 +1,4 @@
-package tries;
+package tries.trie1;
 
 public class TrieNode {
 

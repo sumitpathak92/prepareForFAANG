@@ -1,5 +1,7 @@
 package javaInterviewPrep;
 
+import java.util.ArrayList;
+
 public class StringBuilderVsBuffer {
 
     public static void main(String[] args) {
@@ -13,6 +15,10 @@ public class StringBuilderVsBuffer {
                 sb.append("");
             }
             System.out.println(System.currentTimeMillis() - t);
+
+            ArrayList<Integer> al = new ArrayList<>();
+            int a = 9; int b = 0;
+            int[] A = {a, b};
         }
 
         {
