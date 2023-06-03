@@ -8,7 +8,7 @@ public class MyApplication {
         this.emailService = emailService;
     }
 
-    public void processMessages(String msg, String rec) {
-        this.emailService.sendEmail(msg, rec);
-    }
+//    public void processMessages(String msg, String rec) {
+//        this.emailService.sendEmail(msg, rec);
+//    }
 }

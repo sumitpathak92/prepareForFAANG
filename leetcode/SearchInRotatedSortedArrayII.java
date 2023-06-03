@@ -1,6 +1,6 @@
 package leetcode;
 
-import netscape.security.UserTarget;
+//import netscape.security.UserTarget;
 
 /*
 LC Medium : https://leetcode.com/problems/search-in-rotated-sorted-array/
