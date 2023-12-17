@@ -14,8 +14,6 @@
 
 package leetcode;
 
-import com.sun.tools.javac.util.ArrayUtils;
-
 import java.util.Arrays;
 
 public class ReplaceElementsWithGreatestOnRight {

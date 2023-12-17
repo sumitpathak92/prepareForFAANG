@@ -1,6 +1,5 @@
 package leetcode.MayChallenge;
 
-import com.sun.tools.javac.util.Pair;
 import commonDataStructures.TreeNode;
 
 public class CousinsInBinaryTree {
