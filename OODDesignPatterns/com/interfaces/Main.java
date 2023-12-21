@@ -10,8 +10,8 @@ public class Main {
 ////        car.brake();
 //        car.stop();
 
-//        Media carMedia = new Car();
-//        carMedia.stop();
+        Media carMedia = new Car();
+        carMedia.stop();
 
         NiceCar car = new NiceCar();
         car.start();
