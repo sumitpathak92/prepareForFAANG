@@ -2,6 +2,7 @@ package javaInterviewPrep.lambdas;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class HotelService {
 
@@ -50,7 +51,7 @@ public class HotelService {
 //        return hotel.getHotelType().equals(HotelType.FIVE_STAR);
 //    }
 
-    public List<Hotel> filterHotels(FilteringCondition filteringCondition) {
+    public List<Hotel> filterHotels(Predicate<Hotel> filteringCondition) {
         List<Hotel> filteredHotels = new ArrayList<>();
 
         for(Hotel hotel : hotelList) {
