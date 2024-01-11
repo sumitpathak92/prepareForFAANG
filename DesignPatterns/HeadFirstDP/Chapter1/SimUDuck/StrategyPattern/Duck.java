@@ -1,4 +1,4 @@
-package DesignPatterns.HeadFirstDP.Chapter1.SimUDuck;
+package DesignPatterns.HeadFirstDP.Chapter1.SimUDuck.StrategyPattern;
 
 public abstract class Duck {
 
