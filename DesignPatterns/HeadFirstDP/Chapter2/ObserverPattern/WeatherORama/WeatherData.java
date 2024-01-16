@@ -1,4 +1,4 @@
-package DesignPatterns.HeadFirstDP.Chapter2.ObserverPattern;
+package DesignPatterns.HeadFirstDP.Chapter2.ObserverPattern.WeatherORama;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,18 @@ public class WeatherData implements Subject{
     private float temperature;
     private float humidity;
     private float pressure;
+
+    public float getTemperature() {
+        return temperature;
+    }
+
+    public float getHumidity() {
+        return humidity;
+    }
+
+    public float getPressure() {
+        return pressure;
+    }
 
     List<Observer> observers = new ArrayList<>();
 
@@ -33,7 +45,7 @@ public class WeatherData implements Subject{
     @Override
     public void notifyObservers() {
         for(Observer o : observers) {
-            o.update(temperature, humidity, pressure);
+            o.update();
         }
     }
 

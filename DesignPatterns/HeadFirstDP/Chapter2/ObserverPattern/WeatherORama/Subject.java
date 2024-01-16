@@ -1,4 +1,4 @@
-package DesignPatterns.HeadFirstDP.Chapter2.ObserverPattern;
+package DesignPatterns.HeadFirstDP.Chapter2.ObserverPattern.WeatherORama;
 
 public interface Subject {
 

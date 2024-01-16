@@ -1,4 +1,4 @@
-package DesignPatterns.HeadFirstDP.Chapter2.ObserverPattern;
+package DesignPatterns.HeadFirstDP.Chapter2.ObserverPattern.WeatherORama;
 
 public class StatisticsDisplay implements Observer{
 
@@ -14,11 +14,11 @@ public class StatisticsDisplay implements Observer{
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        this.temperature = temp;
-        this.humidity = humidity;
-        this.pressure = pressure;
-
+    public void update() {
+        this.temperature = weatherData.getTemperature();
+        this.humidity = weatherData.getHumidity();
+        this.pressure = weatherData.getPressure();
+        display();
     }
 
     public void display() {

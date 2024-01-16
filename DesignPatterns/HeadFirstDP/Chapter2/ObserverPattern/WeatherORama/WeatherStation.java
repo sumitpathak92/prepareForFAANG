@@ -1,4 +1,4 @@
-package DesignPatterns.HeadFirstDP.Chapter2.ObserverPattern;
+package DesignPatterns.HeadFirstDP.Chapter2.ObserverPattern.WeatherORama;
 
 public class WeatherStation {
 
@@ -10,9 +10,10 @@ public class WeatherStation {
         ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
 
         weatherData.setMeasurements(100.34f, 34.56f, 89.98f);
-        currentConditionsDisplay.display();
-        statisticsDisplay.display();
-        forecastDisplay.display();
+
+
+        weatherData.setMeasurements(23.34f, 31.45f, 45.32f);
+
 
     }
 }
